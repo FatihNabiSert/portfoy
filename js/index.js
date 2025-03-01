@@ -5,7 +5,14 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const particles = [];
-const numParticles = 100;
+let numParticles = Number(updateMaxDist());
+let particleMaxDist = updateMaxDist();
+
+function updateMaxDist () {
+
+    return (window.innerWidth + window.innerHeight) / 25;
+}
+
 
 class Particle {
     constructor() {
@@ -50,7 +57,7 @@ function animate() {
 
             let dist = getDist(particle, other_particle);
 
-            if (dist < 130) {
+            if (dist < particleMaxDist) {
                 ctx.beginPath();
                 ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
                 ctx.moveTo(particle.x, particle.y);
@@ -76,5 +83,9 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     particles.length = 0;
+
+    particleMaxDist = updateMaxDist();
+    numParticles = Number(updateMaxDist())
+
     init();
 });
