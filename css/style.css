@@ -24,6 +24,11 @@ body {
     text-align: center;
 }
 
+.container .description {
+    width: 85%;
+    margin: 0 auto;
+}
+
 .container>*:not(:first-child) {
     margin-top: 30px;
 }
@@ -102,7 +107,7 @@ canvas#background-effect {
 
 
 /* When screen size is above 1024px, set a fixed width */
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1240px) {
     .container {
         width: 80%;
     }
@@ -119,5 +124,9 @@ canvas#background-effect {
     .container ul.links>.link .card {
         width: 85%;
         margin: 0 auto;
+    }
+
+    .container .description {
+        width: 100%;
     }
 }
