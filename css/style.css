@@ -7,21 +7,27 @@
 
 body {
     background-color: #1e272e;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     font-size: 20px;
-
     font-family: "Lexend Deca", sans-serif;
     font-optical-sizing: auto;
+
 }
 
 .container {
-    width: 50%;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
     color: white;
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container>.inner {
+    width: 50%;
 }
 
 .container .description {
@@ -29,7 +35,7 @@ body {
     margin: 0 auto;
 }
 
-.container>*:not(:first-child) {
+.container>.inner>*:not(:first-child) {
     margin-top: 30px;
 }
 
@@ -100,20 +106,21 @@ canvas#background-effect {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -1;
 }
 
 
 /* When screen size is above 1024px, set a fixed width */
 @media only screen and (max-width: 1240px) {
-    .container {
+    .container>.inner {
         width: 80%;
     }
 }
+
 @media only screen and (max-width: 700px) {
-    .container {
+    .container>.inner {
         width: 95%;
     }
 
